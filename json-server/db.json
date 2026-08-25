@@ -1,0 +1,55 @@
+{
+  "_note": "Kept in sync with src/data/* for reference. The app now imports from src/data directly and does not call this server.",
+  "portfolio": [
+    {
+      "id": 1,
+      "title": "StrategyR",
+      "image": "/img/case-1.jpg",
+      "categories": [
+        "UI/UX",
+        "Front-End"
+      ],
+      "projectLink": "/portfolio-single"
+    },
+    {
+      "id": 2,
+      "title": "MarketGlass Platform",
+      "image": "/img/case-2.jpg",
+      "categories": [
+        "UI/UX",
+        "Product Design"
+      ],
+      "projectLink": "/portfolio-single"
+    },
+    {
+      "id": 3,
+      "title": "Evolv",
+      "image": "/img/case-3.jpg",
+      "categories": [
+        "UI/UX",
+        "Front-End"
+      ],
+      "projectLink": "/portfolio-single"
+    },
+    {
+      "id": 4,
+      "title": "eSmart Permit",
+      "image": "/img/case-4.jpg",
+      "categories": [
+        "Enterprise",
+        "UI/UX"
+      ],
+      "projectLink": "/portfolio-single"
+    },
+    {
+      "id": 5,
+      "title": "iSpatial Techno Solutions",
+      "image": "/img/case-5.jpg",
+      "categories": [
+        "Enterprise",
+        "Front-End"
+      ],
+      "projectLink": "/portfolio-single"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "short_name": "B Srinivas",
+  "name": "B Srinivas — UI/UX Designer & Front-End Developer",
+  "icons": [
+    {
+      "src": "img/favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#030712",
+  "background_color": "#ffffff"
+}

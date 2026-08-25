@@ -1,0 +1,22 @@
+# Client-side routing support for Apache / XAMPP.
+# Without this, deep links such as /portfolio/strategyr return a 404 because
+# Apache looks for a real folder of that name. This rewrites any request that
+# is not an existing file or directory back to index.html so React Router can
+# resolve the route.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Leave real files and directories alone
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else goes to the SPA entry point
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/json .json
+</IfModule>
