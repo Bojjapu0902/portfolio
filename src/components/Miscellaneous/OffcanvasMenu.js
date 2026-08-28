@@ -41,7 +41,7 @@ const OffcanvasMenu = ({ className = "offcanvas-wrapper" }) => {
                   <li className="nav-item" key={index}>
 					<Link
 						to={item.href}
-						className={`nav-link ${location.pathname === item.href ? "active" : ""}`}
+						className={`nav-link ${location.pathname + location.hash === item.href ? "active" : ""}`}
 						data-bs-dismiss="offcanvas"
 					>
 						{item.label} <span className="item-count">({index + 1})</span>

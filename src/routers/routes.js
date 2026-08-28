@@ -3,25 +3,22 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 
 // Importing all the themes
 import ThemeOne from "../themes/theme-one";
-import Portfolio from "../themes/portfolio";
 import PortfolioSingle from "../themes/portfolio-single";
-import About from "../themes/about";
-import Ai from "../themes/ai";
-import Contact from "../themes/contact";
 
 const MyRoutes = () => {
   return (
     <Router>
       <Routes>
+        {/* Works, About, AI and Contact all live as sections on this single page */}
         <Route path="/" element={<ThemeOne />} />
-        <Route path="/portfolio" element={<Portfolio />} />
         {/* Every project gets its own permalink: /portfolio/<slug> */}
         <Route path="/portfolio/:slug" element={<PortfolioSingle />} />
-        {/* Legacy template route — kept so old links do not 404 */}
-        <Route path="/portfolio-single" element={<Navigate to="/portfolio" replace />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/ai" element={<Ai />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* Legacy page routes — kept so old links/bookmarks land on the right section instead of 404ing */}
+        <Route path="/portfolio" element={<Navigate to="/#works" replace />} />
+        <Route path="/portfolio-single" element={<Navigate to="/#works" replace />} />
+        <Route path="/about" element={<Navigate to="/#about" replace />} />
+        <Route path="/ai" element={<Navigate to="/#ai" replace />} />
+        <Route path="/contact" element={<Navigate to="/#contact" replace />} />
         {/* Anything else */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

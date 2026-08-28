@@ -2,43 +2,36 @@ import React from 'react';
 import { aiWorkflow } from '../../data/aiWorkflow';
 
 /**
- * "AI as part of my everyday workflow." — the seven stations AI sits in
- * across the design-and-build process. Reuses the theme's `experiences`
- * section layout so spacing and type scale stay consistent with the rest
- * of the site.
+ * "AI as part of my everyday workflow." — a full-width numbered row list
+ * (number + category rail / title / description), matching the layout on
+ * pleurat.com/ai rather than the theme's generic two-column card grid.
  */
 const AIWorkflowLoop = () => {
   return (
-    <section id="loop" className="experiences ai-tools sticky primary-bg">
+    <section id="loop" className="ai-loop primary-bg">
       <div className="container">
-        <div className="row justify-content-between">
-          <div className="col-12 col-lg-3">
-            <div className="intro">
-              <h3 className="title">
-                {aiWorkflow.title1} <br className="d-none d-lg-block" />
-                {aiWorkflow.title2}
-              </h3>
-              <p className="ai-tools-subtitle d-none d-lg-block mt-3">
-                {aiWorkflow.subtitle}
-              </p>
-            </div>
+        <div className="row">
+          <div className="col-12 col-lg-7">
+            <h3 className="ai-loop-title-heading">
+              {aiWorkflow.title1}
+              <br />
+              <span>{aiWorkflow.title2}</span>
+            </h3>
+            <p className="ai-loop-subtitle">{aiWorkflow.subtitle}</p>
           </div>
+        </div>
 
-          <div className="col-12 col-lg-8">
-            <p className="ai-tools-subtitle d-lg-none mb-4">{aiWorkflow.subtitle}</p>
-
-            <div className="row items">
-              {aiWorkflow.steps.map((step) => (
-                <div key={step.id} className="col-12 col-md-6 item">
-                  <div className="content">
-                    <span className="count">{step.id}.</span>
-                    <h4 className="title mt-0 mb-3">{step.title}</h4>
-                    <p>{step.description}</p>
-                  </div>
-                </div>
-              ))}
+        <div className="ai-loop-list">
+          {aiWorkflow.steps.map((step) => (
+            <div key={step.id} className="ai-loop-row">
+              <div className="ai-loop-meta">
+                <span className="num">{step.id}</span>
+                <span className="category">{step.category}</span>
+              </div>
+              <h4 className="ai-loop-item-title">{step.title}</h4>
+              <p className="ai-loop-desc">{step.description}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

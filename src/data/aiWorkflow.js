@@ -10,45 +10,59 @@ export const aiWorkflow = {
 	steps: [
 		{
 			id: "01",
+			category: "Automation",
 			title: "Task Automation",
 			description:
 				"Component generation, documentation, release notes, design tokens. The repetitive half of the job, off my plate.",
 		},
 		{
 			id: "02",
+			category: "Research",
 			title: "Research",
 			description:
 				"Competitor analysis, interview synthesis, UX patterns — the groundwork, in a fraction of the usual time.",
 		},
 		{
 			id: "03",
+			category: "Analysis",
 			title: "Analysis & Decision Making",
 			description:
 				"Breaking down requirements, mapping flows, finding edge cases and challenging assumptions before design starts.",
 		},
 		{
 			id: "04",
+			category: "Development",
 			title: "Code & Development",
 			description:
 				"React, Tailwind, production-ready components. Shortens the gap between design and implementation.",
 		},
 		{
 			id: "05",
+			category: "Prototyping",
 			title: "Fast Prototyping",
 			description:
 				"Interactive prototypes and lightweight MVPs instead of static mockups — validated before engineering time is spent.",
 		},
 		{
 			id: "06",
+			category: "Testing",
 			title: "Testing & Validation",
 			description:
 				"Accessibility reviews, UX audits, visual consistency and design QA, before issues reach users.",
 		},
 		{
 			id: "07",
+			category: "Agents",
 			title: "MCPs & AI Agents",
 			description:
 				"Figma, Claude, Cursor, GitHub and custom MCP servers in one loop, sharing context instead of working in isolation.",
+		},
+		{
+			id: "08",
+			category: "Apps",
+			title: "Building real world apps",
+			description:
+				"It's not just vibe coding. It's systems thinking, architecture, and scalability.",
 		},
 	],
 };

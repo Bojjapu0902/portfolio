@@ -43,7 +43,10 @@ const MagneticButton = ({
     ...rest,
   };
 
-  if (isInternal(href)) {
+  /* A `download` href still starts with "/" (it's a same-origin file, e.g.
+     "/files/cv.pdf") but must stay a plain <a> — a Router <Link> would try
+     to client-route it instead of letting the browser fetch/save the file. */
+  if (isInternal(href) && !props.download) {
     return <Link to={href} {...props}>{inner}</Link>;
   }
 

@@ -16,7 +16,7 @@ const AwardsTwo = () => {
             <div className="col-12 col-md-6 item" key={index}>
               <div className="content">
                 {item.image && (
-                  <a className="logo" href={item.link || "/about"}>
+                  <a className="logo" href={item.link || "/#about"}>
                     <img src={item.image} alt={item.title || `Strength ${index + 1}`} />
                   </a>
                 )}

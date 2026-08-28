@@ -40,7 +40,7 @@ const Header = () => {
                 <Link
                   to={item.href}
                   className={`nav-link ${
-                    location.pathname === item.href ? "active" : ""
+                    location.pathname + location.hash === item.href ? "active" : ""
                   }`}
                 >
                   {item.label}

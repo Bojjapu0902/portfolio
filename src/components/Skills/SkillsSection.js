@@ -53,7 +53,7 @@ const SkillsSection = () => {
           ))}
           {skillsData.skillsProgress.map((skill, index) => (
             <div key={index} className="col-12 col-md-6 item align-self-center">
-              <div className="content mt-5 mt-md-0">
+              <div className="content mt-5">
                 <div className="progress">
                   <span className="title">{skill.title}</span>
                   <div

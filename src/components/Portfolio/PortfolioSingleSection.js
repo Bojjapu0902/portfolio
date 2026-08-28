@@ -38,7 +38,7 @@ const PortfolioSingleSection = () => {
               <p>
                 There is no project at this address. It may have been renamed or removed.
               </p>
-              <Link className="btn btn-outline content-btn swap-icon" to="/portfolio">
+              <Link className="btn btn-outline content-btn swap-icon" to="/#works">
                 Back to all works <i className="icon bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -59,7 +59,7 @@ const PortfolioSingleSection = () => {
               <div className="portfolio-meta d-flex align-items-center">
                 <div className="portfolio-terms">
                   {portfolio.categories.map((category, index) => (
-                    <Link key={index} className="terms" to="/portfolio">
+                    <Link key={index} className="terms" to="/#works">
                       {category}
                     </Link>
                   ))}

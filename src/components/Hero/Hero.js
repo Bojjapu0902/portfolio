@@ -6,7 +6,8 @@ const Hero = ({
     introText = site.intro,
     title = "Designing and building interfaces for",
     highlightedText = "enterprise products",
-    buttonText = "Let's Talk!",
+    buttonText = "Download CV",
+    buttonHref = site.cv,
     description = site.shortBio,
     bgImage1 = "/img/hero-bg-1.svg",
     bgImage2 = "/img/hero-bg-2.svg"
@@ -26,7 +27,7 @@ const Hero = ({
                             {/* Content */}
                             <div className="content d-flex flex-column flex-md-row justify-content-md-between">
                                 <div className="hero-button order-last order-md-first mt-4 mt-md-0">
-									<MagneticButton href="/contact">
+									<MagneticButton href={buttonHref} download={site.cvFileName} iconClass="bi bi-arrow-down-short ms-1">
 										{buttonText}
 									</MagneticButton>
                                 </div>

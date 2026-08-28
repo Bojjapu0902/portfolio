@@ -8,7 +8,7 @@ const AboutSection = () => {
     <section className="services">
       <div className="container">
         {/* About Component */}
-        <About />
+        <About buttonText="Get In Touch" buttonLink="/#contact" />
 
         {/* What I do */}
         <Services />

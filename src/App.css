@@ -105,10 +105,35 @@
 }
 
 /* ---- Base type: single weight, tight display line-heights, achromatic ---- */
-html,
-body {
+/* Only html gets the background: per the HTML5 canvas-background-propagation
+   rule, a non-transparent <html> background is what paints the page canvas,
+   so this alone makes the whole page paper-colored. Giving <body> its own
+   background too would paint an opaque box that sits *above* any negative
+   z-index descendant elsewhere in the tree (body's own background paints
+   after negative-z-index content in the same stacking context) — which is
+   exactly what buried the hero-bg circles below. */
+html {
 	background-color: var(--color-paper);
+}
+
+/* Keep the fixed header from covering the top of a section when the nav
+   jumps straight to a hash (e.g. "/#works") without the JS smooth-scroll. */
+#works,
+#about,
+#ai,
+#contact {
+	scroll-margin-top: 100px;
+}
+body {
 	color: var(--color-ink);
+}
+
+/* Give the hero its own stacking context so `.hero-bg`'s z-index: -1 stays
+   scoped to the hero section (painted above its own background, below its
+   content) instead of escaping to the document root, where it depends on
+   no ancestor ever picking up an opaque background. */
+.hero-section {
+	z-index: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -144,6 +169,101 @@ header .navbar-expand .navbar-nav .dropdown-menu .nav-link.title {
    only element with visible elevation in the system. */
 .portfolio-item.has-shadow {
 	box-shadow: var(--shadow-xl-3);
+}
+
+/* --------------------------------------------------------------------------
+   AI workflow loop (/ai page) — full-width numbered row list
+   (number + category rail / title / description), per pleurat.com/ai
+   -------------------------------------------------------------------------- */
+.ai-loop {
+	padding: var(--spacing-80) 0;
+}
+
+.ai-loop-title-heading {
+	font-size: var(--text-heading-sm);
+	line-height: var(--leading-heading-sm);
+	font-weight: 400;
+	color: var(--color-ink);
+	margin: 0 0 1.25rem;
+}
+
+.ai-loop-title-heading span {
+	color: var(--color-ash);
+}
+
+.ai-loop-subtitle {
+	font-size: var(--text-body);
+	line-height: 1.6;
+	color: var(--color-slate);
+	max-width: 46ch;
+	margin: 0 0 var(--spacing-40);
+}
+
+.ai-loop-list {
+	border-bottom: 1px solid var(--color-graphite-hairline);
+}
+
+.ai-loop-row {
+	display: grid;
+	grid-template-columns: 140px minmax(200px, 1fr) minmax(260px, 1.15fr);
+	align-items: center;
+	gap: var(--spacing-24);
+	padding: 1.5rem var(--spacing-16);
+	margin: 0 calc(var(--spacing-16) * -1);
+	border-top: 1px solid var(--color-graphite-hairline);
+	border-radius: var(--radius-small-cards);
+	transition: background-color 0.25s ease;
+}
+
+.ai-loop-row:hover {
+	background-color: var(--color-cream-notice);
+}
+
+.ai-loop-meta {
+	display: flex;
+	align-items: baseline;
+	gap: 0.625rem;
+	font-size: var(--text-caption);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-ash);
+	white-space: nowrap;
+}
+
+.ai-loop-meta .num {
+	color: var(--color-ash);
+}
+
+.ai-loop-item-title {
+	font-size: 1.25rem;
+	font-weight: 400;
+	color: var(--color-ink);
+	margin: 0;
+}
+
+.ai-loop-desc {
+	font-size: var(--text-body-sm);
+	line-height: 1.6;
+	color: var(--color-slate);
+	margin: 0;
+	max-width: 46ch;
+}
+
+@media (max-width: 767.98px) {
+	.ai-loop-row {
+		grid-template-columns: 1fr;
+		row-gap: 0.5rem;
+		padding: 1.25rem var(--spacing-16);
+	}
+	.ai-loop-desc {
+		max-width: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ai-loop-row {
+		transition: none;
+	}
 }
 
 /* --------------------------------------------------------------------------
@@ -267,7 +387,26 @@ header .navbar-expand .navbar-nav .dropdown-menu .nav-link.title {
 
 /* --------------------------------------------------------------------------
    Client / company marquee — text fallback while real logos are missing
+   The theme's own .marquee sizing (230px square tiles + 100px padding) is
+   built for rotated logo badges; left as-is a bare text fallback renders as
+   a couple of small overflowing labels inside a mostly-empty ~430px band.
+   Right-size the tiles and padding for a plain "trusted by" text strip.
    -------------------------------------------------------------------------- */
+.marquee {
+	padding: 48px 10px;
+}
+.marquee ul .item {
+	width: auto;
+	height: auto;
+}
+.marquee ul .item .marquee-item {
+	height: auto;
+	transform: none;
+}
+.marquee ul .item .marquee-content {
+	width: auto;
+	height: auto;
+}
 .marquee .marquee-content .brand-name {
 	display: inline-flex;
 	align-items: center;
@@ -284,6 +423,162 @@ header .navbar-expand .navbar-nav .dropdown-menu .nav-link.title {
 
 .marquee .item:hover .brand-name {
 	opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Milestones list — the arrow link is absolutely positioned over the row
+   (theme default), so a long title runs underneath it unless the text
+   column reserves space for it.
+   -------------------------------------------------------------------------- */
+.awards .list-group-item .content {
+	padding-right: 4.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Works showcase — pinned horizontal-scroll gallery between the "Selected
+   Works" heading and the filterable grid (WorksShowcase.js drives the GSAP
+   ScrollTrigger pin/translate; this is layout + look only). A deliberate
+   dark "cinematic" band, so it's pinned to the ink/paper tokens directly
+   rather than the light/dark toggle's swapped variables.
+   -------------------------------------------------------------------------- */
+.works-showcase {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	background-color: var(--color-ink);
+	color: var(--color-paper);
+}
+
+.works-showcase-track {
+	display: flex;
+	align-items: stretch;
+	height: 100%;
+	width: max-content;
+	will-change: transform;
+}
+
+.works-showcase-panel {
+	flex: 0 0 auto;
+	height: 100%;
+}
+
+.works-showcase-intro {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: min(90vw, 620px);
+	padding: 0 6vw;
+}
+
+.works-showcase-eyebrow {
+	font-size: var(--text-caption);
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-stone);
+	margin-bottom: var(--spacing-24);
+}
+
+.works-showcase-title {
+	font-size: clamp(2.5rem, 5vw, 4.25rem);
+	line-height: 1.05;
+	margin: 0 0 var(--spacing-24);
+	color: var(--color-paper);
+}
+
+.works-showcase-title em {
+	font-style: italic;
+	color: var(--color-stone);
+}
+
+.works-showcase-subtitle {
+	font-size: var(--text-subheading);
+	line-height: var(--leading-subheading);
+	color: var(--color-stone);
+	max-width: 34ch;
+	margin: 0 0 var(--spacing-40);
+}
+
+.works-showcase-hint {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: var(--text-caption);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-paper);
+	opacity: 0.7;
+}
+
+.works-showcase-item {
+	position: relative;
+	width: min(78vw, 860px);
+	margin-right: 4vw;
+	overflow: hidden;
+	display: block;
+}
+
+.works-showcase-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.6s var(--transition-function, ease);
+}
+
+.works-showcase-item:hover img {
+	transform: scale(1.04);
+}
+
+.works-showcase-item-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: var(--spacing-40);
+	background: linear-gradient(to top, rgba(23, 23, 23, 0.85) 0%, rgba(23, 23, 23, 0) 45%);
+}
+
+.works-showcase-index {
+	font-size: var(--text-heading-sm);
+	color: var(--color-paper);
+	opacity: 0.5;
+}
+
+.works-showcase-item-meta h3 {
+	color: var(--color-paper);
+	font-size: var(--text-heading-sm);
+	margin: 0 0 0.5rem;
+}
+
+.works-showcase-item-meta p {
+	color: var(--color-stone);
+	font-size: var(--text-body);
+	max-width: 42ch;
+	margin: 0;
+}
+
+@media (max-width: 991px) {
+	.works-showcase {
+		height: auto;
+	}
+	.works-showcase-track {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scroll-snap-type: x proximity;
+		padding-bottom: var(--spacing-24);
+	}
+	.works-showcase-panel {
+		scroll-snap-align: start;
+	}
+	.works-showcase-intro,
+	.works-showcase-item {
+		height: 80vh;
+	}
+	.works-showcase-hint {
+		display: none;
+	}
 }
 
 /* --------------------------------------------------------------------------

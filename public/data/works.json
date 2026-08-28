@@ -19,7 +19,7 @@
       "categories": ["UI/UX", "Front-End"],
       "groups": ["ui-ux", "front-end"],
       "role": ["UX Design", "UI Design", "Front-End Development"],
-      "thumbnail": "/img/case-1.jpg",
+      "thumbnail": "/img/case-1.svg",
       "excerpt": "Turning three decades of analyst-driven market research into a browsable, data-dense platform that works on every screen.",
       "description": "Global Industry Analysts, Inc. (GIA), operating under the StrategyR brand, is a leading publisher of off-the-shelf market research, recognised for accurate market forecasting across 34 years. The platform serves influencer-driven research across a wide range of topics with comprehensive analytics for all key geographies.",
       "task": "Design and build an interface that makes thousands of data-heavy research reports discoverable, comparable and readable — for a global audience, on any device.",
@@ -28,7 +28,7 @@
       "outcome": "A consistent, responsive research experience across desktop, tablet and mobile, with a component library the team continues to build on. TODO: add measurable outcomes here — traffic, engagement, or delivery-speed improvements.",
       "technologies": ["React.js", "HTML5", "SCSS", "Bootstrap", "JavaScript", "Axios", "React Router"],
       "liveSite": "https://www.strategyr.com",
-      "gallery": ["/img/case-1.jpg", "/img/case-2.jpg", "/img/case-3.jpg"]
+      "gallery": ["/img/case-1.svg", "/img/case-2.svg", "/img/case-3.svg"]
     },
     {
       "id": 2,
@@ -42,7 +42,7 @@
       "categories": ["UI/UX", "Product Design"],
       "groups": ["ui-ux", "product"],
       "role": ["UX Design", "UI Design"],
-      "thumbnail": "/img/case-2.jpg",
+      "thumbnail": "/img/case-2.svg",
       "excerpt": "An interactive intelligence platform connecting domain experts across competing companies worldwide.",
       "description": "MarketGlass™ is an interactive market intelligence platform that connects domain experts across competitive companies worldwide, giving them a shared space to contribute to and draw from live market research.",
       "task": "Design the experience for a collaborative intelligence platform where expert contributors and research consumers share the same interface without getting in each other's way.",
@@ -51,7 +51,7 @@
       "outcome": "A single platform serving both audiences with consistent patterns and a documented flow that the development team could implement directly. TODO: add adoption or engagement figures if you have them.",
       "technologies": ["Figma", "Adobe XD", "HTML5", "SCSS", "Bootstrap"],
       "liveSite": "",
-      "gallery": ["/img/case-2.jpg", "/img/case-6.jpg", "/img/case-1.jpg"]
+      "gallery": ["/img/case-2.svg", "/img/case-6.svg", "/img/case-1.svg"]
     },
     {
       "id": 3,
@@ -65,7 +65,7 @@
       "categories": ["UI/UX", "Front-End"],
       "groups": ["ui-ux", "front-end"],
       "role": ["UX Design", "UI Design", "Front-End Development"],
-      "thumbnail": "/img/case-3.jpg",
+      "thumbnail": "/img/case-3.svg",
       "excerpt": "A companion product in the StrategyR research suite, designed and built end to end.",
       "description": "Evolv sits within the Global Industry Analysts / StrategyR product family, extending how the firm's market research reaches and is used by its audience. TODO: replace this paragraph with a specific description of what Evolv does — it currently reuses the StrategyR summary from your CV.",
       "task": "Design and build the interface end to end, keeping it visually and structurally consistent with the wider StrategyR product family.",
@@ -74,7 +74,7 @@
       "outcome": "A product that reads as part of the suite from the first screen, built without duplicating design or front-end work. TODO: add specifics.",
       "technologies": ["React.js", "HTML5", "SCSS", "Bootstrap", "JavaScript"],
       "liveSite": "",
-      "gallery": ["/img/case-3.jpg", "/img/case-5.jpg", "/img/case-4.jpg"]
+      "gallery": ["/img/case-3.svg", "/img/case-5.svg", "/img/case-4.svg"]
     },
     {
       "id": 4,
@@ -88,7 +88,7 @@
       "categories": ["Enterprise", "UI/UX"],
       "groups": ["enterprise", "ui-ux"],
       "role": ["UX Design", "UI Design", "Front-End Development"],
-      "thumbnail": "/img/case-4.jpg",
+      "thumbnail": "/img/case-4.svg",
       "excerpt": "A configurable web platform that turns paper-based permit and approval processes into trackable digital workflows.",
       "description": "eSmart Permit is a web-based solution for automating the issue of work permits to contractors. The same framework generalises to any internal approval process — licences, building permits, leasing, and customer service management such as telecom connections, utility connections and property registration.",
       "task": "Design an interface for multi-step approval workflows that stays clear no matter how many stages, roles or conditions a given process has.",
@@ -97,7 +97,7 @@
       "outcome": "A configurable workflow UI that adapts to different approval processes without redesign, replacing paper-based permit handling with a trackable digital process.",
       "technologies": ["HTML5", "CSS3", "SCSS", "Bootstrap", "JavaScript", "jQuery"],
       "liveSite": "",
-      "gallery": ["/img/case-4.jpg", "/img/case-7.jpg", "/img/case-2.jpg"]
+      "gallery": ["/img/case-4.svg", "/img/case-7.svg", "/img/case-2.svg"]
     },
     {
       "id": 5,
@@ -111,7 +111,7 @@
       "categories": ["Enterprise", "Front-End"],
       "groups": ["enterprise", "front-end"],
       "role": ["UX Design", "UI Design", "Front-End Development"],
-      "thumbnail": "/img/case-5.jpg",
+      "thumbnail": "/img/case-5.svg",
       "excerpt": "Presenting complex enterprise integration services in a way non-technical buyers can actually follow.",
       "description": "iSpatial Techno Solutions provides smart solutions that automate enterprise business processes into results-oriented systems, streamlining operations that involve integration and communication between multiple business and IT environments.",
       "task": "Communicate a technically complex service offering to a mixed audience of technical evaluators and business decision-makers.",
@@ -120,7 +120,7 @@
       "outcome": "A corporate platform that serves both audiences from the same pages, with a responsive, cross-browser-tested front end.",
       "technologies": ["HTML5", "CSS3", "Bootstrap", "JavaScript", "jQuery"],
       "liveSite": "",
-      "gallery": ["/img/case-5.jpg", "/img/case-3.jpg", "/img/case-6.jpg"]
+      "gallery": ["/img/case-5.svg", "/img/case-3.svg", "/img/case-6.svg"]
     }
   ]
 }
